@@ -1,5 +1,5 @@
 import handleProfileSignup from '../3-all';
-import { uploadPhoto, createUser } from './utils';
+import { uploadPhoto, createUser } from '../utils';
 
 jest.mock('./utils', () => ({
   uploadPhoto: jest.fn(),
