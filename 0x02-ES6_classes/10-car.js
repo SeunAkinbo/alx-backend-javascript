@@ -9,17 +9,17 @@ export default class Car {
     this._color = color;
   }
 
-  //Getters for brand
+  // Getters for brand
   get brand() {
     return this.brand;
   }
 
-  //Getter for motor
+  // Getter for motor
   get motor() {
     return this.motor;
   }
 
-  //Getter for color
+  // Getter for color
   get color() {
     return this.color;
   }
