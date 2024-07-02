@@ -1,6 +1,6 @@
 // updateStudentGradeByCity.test.js
 const updateStudentGradeByCity = require('../4-update_grade_by_city');
-const getListStudents = require('./0-get_list_students');
+const getListStudents = require('../0-get_list_students');
 
 test('updateStudentGradeByCity returns an array of students for a specific city with their new grade', () => {
   const students = getListStudents();
