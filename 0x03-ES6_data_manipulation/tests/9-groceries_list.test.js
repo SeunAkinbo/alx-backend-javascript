@@ -25,3 +25,9 @@ test('groceriesList returns a map with the correct number of items', () => {
   
   expect(groceries.size).toBe(5);
 });
+
+test('groceriesList should return an instance of Map', () => {
+  const groceries = groceriesList();
+  
+  expect(groceries).toBeInstanceOf(Map);
+});
