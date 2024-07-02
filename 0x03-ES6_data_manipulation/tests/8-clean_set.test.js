@@ -50,3 +50,13 @@ test('cleanSet returns an empty string if startString is not a string', () => {
   
   expect(result).toBe(expected);
 });
+
+test('cleanSet does not include values that match the startString exactly', () => {
+  const set = new Set(['start', 'startValue']);
+  const startString = 'start';
+  
+  const result = cleanSet(set, startString);
+  const expected = 'Value';
+  
+  expect(result).toBe(expected);
+});
