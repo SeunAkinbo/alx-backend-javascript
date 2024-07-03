@@ -1,4 +1,4 @@
-// src/main.ts
+// js/main.ts
 
 interface Teacher {
   readonly firstName: string;
@@ -7,6 +7,10 @@ interface Teacher {
   yearsOfExperience?: number;
   location: string;
   [propName: string]: any;
+}
+
+interface Directors extends Teacher {
+  numberOfReports: number;
 }
 
 const teacher1: Teacher = {
@@ -26,6 +30,14 @@ const teacher2: Teacher = {
   contract: true,
 };
 
-const teachersList: Teacher[] = [teacher1, teacher2];
+const director1: Directors = {
+  firstName: 'Carol',
+  lastName: 'Williams',
+  fullTimeEmployee: true,
+  location: 'San Francisco',
+  numberOfReports: 5,
+};
 
-export { Teacher, teachersList };
+const teachersList: Teacher[] = [teacher1, teacher2, director1];
+
+export { Teacher, Directors, teachersList };
