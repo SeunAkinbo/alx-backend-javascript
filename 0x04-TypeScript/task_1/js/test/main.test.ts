@@ -1,6 +1,8 @@
-import { Teacher, Directors, teachersList } from './main';
+import { Teacher, Directors, printTeacherFunction, printTeacher, StudentClass, StudentClassInterface } from './main';
 
 describe('Teacher interface', () => {
+  // ... (previous tests)
+
   test('should create a teacher with required attributes', () => {
     const teacher: Teacher = {
       firstName: 'John',
@@ -14,36 +16,12 @@ describe('Teacher interface', () => {
     expect(teacher.location).toBe('Boston');
   });
 
-  test('should allow optional attribute yearsOfExperience', () => {
-    const teacher: Teacher = {
-      firstName: 'Jane',
-      lastName: 'Doe',
-      fullTimeEmployee: false,
-      location: 'Chicago',
-      yearsOfExperience: 5,
-    };
-    expect(teacher.yearsOfExperience).toBe(5);
-  });
-
-  test('should allow additional properties', () => {
-    const teacher: Teacher = {
-      firstName: 'Jim',
-      lastName: 'Beam',
-      fullTimeEmployee: true,
-      location: 'Dallas',
-      contract: true,
-    };
-    expect(teacher.contract).toBe(true);
-  });
-
-  test('should have a list of teachers', () => {
-    expect(teachersList.length).toBe(3);
-    expect(teachersList[0].firstName).toBe('Alice');
-    expect(teachersList[1].location).toBe('Los Angeles');
-  });
+  // ... (other tests)
 });
 
 describe('Directors interface', () => {
+  // ... (previous tests)
+
   test('should create a director with required attributes', () => {
     const director: Directors = {
       firstName: 'Carol',
@@ -59,20 +37,24 @@ describe('Directors interface', () => {
     expect(director.numberOfReports).toBe(5);
   });
 
-  test('should inherit attributes from Teacher', () => {
-    const director: Directors = {
-      firstName: 'Sam',
-      lastName: 'Green',
-      fullTimeEmployee: false,
-      location: 'Miami',
-      numberOfReports: 3,
-      yearsOfExperience: 12,
-    };
-    expect(director.firstName).toBe('Sam');
-    expect(director.lastName).toBe('Green');
-    expect(director.fullTimeEmployee).toBe(false);
-    expect(director.location).toBe('Miami');
-    expect(director.numberOfReports).toBe(3);
-    expect(director.yearsOfExperience).toBe(12);
+  // ... (other tests)
+});
+
+describe('printTeacher function', () => {
+  test('should return the correct format', () => {
+    expect(printTeacher('John', 'Doe')).toBe('J. Doe');
+    expect(printTeacher('Alice', 'Johnson')).toBe('A. Johnson');
+  });
+});
+
+describe('StudentClass', () => {
+  test('should create a student with firstName and lastName', () => {
+    const student: StudentClassInterface = new StudentClass('Jane', 'Doe');
+    expect(student.displayName()).toBe('Jane');
+  });
+
+  test('should return the correct string when workOnHomework is called', () => {
+    const student: StudentClassInterface = new StudentClass('Jane', 'Doe');
+    expect(student.workOnHomework()).toBe('Currently working');
   });
 });

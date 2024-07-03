@@ -13,31 +13,39 @@ interface Directors extends Teacher {
   numberOfReports: number;
 }
 
-const teacher1: Teacher = {
-  firstName: 'Alice',
-  lastName: 'Johnson',
-  fullTimeEmployee: true,
-  location: 'New York',
-  contract: false,
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName.charAt(0)}. ${lastName}`;
 };
 
-const teacher2: Teacher = {
-  firstName: 'Bob',
-  lastName: 'Smith',
-  fullTimeEmployee: false,
-  yearsOfExperience: 10,
-  location: 'Los Angeles',
-  contract: true,
-};
+interface StudentClassConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
 
-const director1: Directors = {
-  firstName: 'Carol',
-  lastName: 'Williams',
-  fullTimeEmployee: true,
-  location: 'San Francisco',
-  numberOfReports: 5,
-};
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
 
-const teachersList: Teacher[] = [teacher1, teacher2, director1];
+class StudentClass implements StudentClassInterface {
+  firstName: string;
+  lastName: string;
 
-export { Teacher, Directors, teachersList };
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+export { Teacher, Directors, printTeacherFunction, printTeacher, StudentClassConstructor, StudentClassInterface, StudentClass };
