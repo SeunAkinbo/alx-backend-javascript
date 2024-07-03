@@ -1,4 +1,4 @@
-import { Teacher, Directors, printTeacherFunction, printTeacher, StudentClass, StudentClassInterface } from './main';
+import { Teacher, Directors, printTeacherFunction, printTeacher, StudentClass, StudentClassInterface } from '../main';
 
 describe('Teacher interface', () => {
   // ... (previous tests)
